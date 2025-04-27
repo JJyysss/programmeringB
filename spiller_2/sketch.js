@@ -5,7 +5,7 @@ let decryptInput, decryptButton, decryptedResultP;
 
 
 function preload() {  
-  img = loadImage('./assets/_.jpeg')
+  img = loadImage('./assets/backgr.jpeg')
 }
 
 
