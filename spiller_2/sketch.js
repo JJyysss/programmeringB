@@ -42,32 +42,45 @@ function setup() {
   dashButton = createButton('− (Bindestreg)');
   dashButton.position(200, 150);
   dashButton.mousePressed(() => morseCode += '−');
+
+
+  
+  // Slet-knapper
+  deleteButton = createButton('Slet sidste');
+  deleteButton.position(200, 250);
+  deleteButton.mousePressed(deleteLastCharacter);
   
   sendButton = createButton('Send Morse');
-  sendButton.position(830, 150);
+  sendButton.position(530, 250);
   sendButton.mousePressed(sendMorse);
   
 
-  createDiv('Din Morse-kode:').position(20, 200).id('morseDisplay');
+  createDiv('Din Morse-kode:').position(20, 350).id('morseDisplay');
   
   
   
     // Input til dekryptering
   decryptInput = createInput('');
-  decryptInput.position(width/4, 300);
+  decryptInput.position(width/4, 450);
   decryptInput.size(200);
   
   decryptButton = createButton('Dekryptér (Caesar-13)');
-  decryptButton.position(width/2, 300);
+  decryptButton.position(width/2, 450);
   decryptButton.mousePressed(decryptText);
 
-  decryptedResultP = createP('');
-  decryptedResultP.position(20, 400);
+  decryptedP = createP('');
+  decryptedP.position(20, 600);
   
   
   
 }
 
+// Slet den sidste karakter
+function deleteLastCharacter() {
+  if (morseCode.length > 0) {
+    morseCode = morseCode.substring(0, morseCode.length - 1);
+  }
+}
 
 
 function sendMorse() {
@@ -95,7 +108,7 @@ function decryptText() {
   const encrypted = decryptInput.value();
   const shift = 13;
   const decrypted = caesarDecrypt(encrypted, shift);
-  decryptedResultP.html("Dekrypteret gåder: " + decrypted);
+  decryptedP.html("Dekrypteret gåder: " + decrypted);
 }
 
 function caesarDecrypt(text, shift) {
