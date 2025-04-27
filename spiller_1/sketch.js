@@ -15,7 +15,7 @@ let todosDiv
 
 
 function preload() {  
-  img = loadImage('./assets/_.jpeg')
+  img = loadImage('./assets/background.jpeg')
 }
 
 function setup() {
