@@ -32,7 +32,7 @@ function setup() {
       console.log('Fik dette fra databasen: ', doc.data() )
     console.log(doc.data())
     
-      //dataModel = doc.data()
+    
   } )
   
    
@@ -40,16 +40,16 @@ function setup() {
   
   
 
-  let jokeButton = createButton('Hent gåde')
-  jokeButton.position(width/3,height/3)
-  //jokeButton.center()
-  // mousePressed kalder en anonym funktion - som kalder getJoke()
-  // funkntion navn ()
-  jokeButton.mousePressed( () => getJoke() ) 
+  let riddleButton = createButton('Hent gåde')
+  riddleButton.position(width/3,height/3)
   
-    jokeDiv = createDiv('Hit the button to fetch a new joke')
-  jokeDiv.addClass('jokeDiv')
-  jokeDiv.position(width/3,height/4)
+  // mousePressed kalder en anonym funktion - som kalder getRiddle()
+  // funkntion navn ()
+  riddleButton.mousePressed( () => getRiddle() ) 
+  
+    riddleDiv = createDiv('Hit the button to fetch a new riddle')
+  riddleDiv.addClass('riddleDiv')
+  riddleDiv.position(width/3,height/4)
   
   
   
@@ -118,8 +118,8 @@ function setup() {
   
   
   
- async function getJoke() {
-  jokeDiv.html('Henter gåde...');
+ async function getRiddle() {
+  riddleDiv.html('Henter gåde...');
   try {
     // Hent dokumentet fra Firebase
     const doc = await database.collection('gaade').doc('gaader').get();
@@ -143,16 +143,16 @@ function setup() {
        encryptedRiddle = caesarEncrypt(riddle.toUpperCase(),13);
       console.log(selectedRiddle.riddle.toUpperCase())
        
-        jokeDiv.html(`<strong>Krypteret gåde:</strong> ${encryptedRiddle}`).position(width/7,height/7);
+        riddleDiv.html(`<strong>Krypteret gåde:</strong> ${encryptedRiddle}`).position(width/7,height/7);
       } else {
-        jokeDiv.html('Ingen gåder fundet i databasen');
+        riddleDiv.html('Ingen gåder fundet i databasen');
       }
     } else {
-      jokeDiv.html('Dokument ikke fundet');
+      riddleDiv.html('Dokument ikke fundet');
     }
   } catch (error) {
     console.error('Fejl ved hentning fra Firebase:', error);
-    jokeDiv.html('Fejl ved hentning');
+    riddleDiv.html('Fejl ved hentning');
   }
 }
 
@@ -239,18 +239,4 @@ function caesarEncrypt(text, shift) {
 }
 
 
-
-
-// Tekst til Morse
-// function textToMorse(text) {
-//   const morseMap = {
-//     'A': '·−', 'B': '−···', 'C': '−·−·', 'D': '−··', 'E': '·',
-//     'F': '··−·', 'G': '−−·', 'H': '····', 'I': '··', 'J': '·−−−',
-//     'K': '−·−', 'L': '·−··', 'M': '−−', 'N': '−·', 'O': '−−−',
-//     'P': '·−−·', 'Q': '−−·−', 'R': '·−·', 'S': '···', 'T': '−',
-//     'U': '··−', 'V': '···−', 'W': '·−−', 'X': '−··−', 'Y': '−·−−',
-//     'Z': '−−··', ' ': '/'
-//   };
-//   return text.split('').map(c => morseMap[c] || '').join(' ');
-// }
 

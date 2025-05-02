@@ -31,45 +31,45 @@ function setup() {
   
   
   dotButton = createButton('· (Prik)');
-  dotButton.position(20, 150);
+  dotButton.position(20, 350);
   dotButton.mousePressed(() => morseCode += '·');
   
   
    rumButton = createButton('  (mellemrum)');
-  rumButton.position(520, 150);
+  rumButton.position(520, 350);
  rumButton.mousePressed(() => morseCode += ' ');
   
   dashButton = createButton('− (Bindestreg)');
-  dashButton.position(200, 150);
+  dashButton.position(200, 350);
   dashButton.mousePressed(() => morseCode += '−');
 
 
   
   // Slet-knapper
   deleteButton = createButton('Slet sidste');
-  deleteButton.position(200, 250);
+  deleteButton.position(200, 450);
   deleteButton.mousePressed(deleteLastCharacter);
   
   sendButton = createButton('Send Morse');
-  sendButton.position(530, 250);
+  sendButton.position(530, 450);
   sendButton.mousePressed(sendMorse);
   
 
-  createDiv('Din Morse-kode:').position(20, 350).id('morseDisplay');
+  createDiv('Din Morse-kode:').position(20, 550).id('morseDisplay');
   
   
   
     // Input til dekryptering
   decryptInput = createInput('');
-  decryptInput.position(width/4, 450);
+  decryptInput.position(width/4, 150);
   decryptInput.size(200);
   
   decryptButton = createButton('Dekryptér (Caesar-13)');
-  decryptButton.position(width/2, 450);
+  decryptButton.position(width/2, 150);
   decryptButton.mousePressed(decryptText);
 
   decryptedP = createP('');
-  decryptedP.position(20, 600);
+  decryptedP.position(20, 200);
   
   
   
@@ -99,7 +99,7 @@ function draw() {
   background(img,windowWidth,windowHeight);
   textSize(30);
   text("SPILLER 2: Morse-modtager", 20, 30);
-  text("morse kode: " + morseCode, 20, 80);
+  text("morse kode: " + morseCode, 80, 320);
   
 }
 
