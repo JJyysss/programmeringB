@@ -39,14 +39,15 @@ function setup() {
   
   
   
-
+ // Knap til at hente en ny gåde
   let riddleButton = createButton('Hent gåde')
   riddleButton.position(width/3,height/3)
   
   // mousePressed kalder en anonym funktion - som kalder getRiddle()
   // funkntion navn ()
+  // Når der klikkes, kald getRiddle()
   riddleButton.mousePressed( () => getRiddle() ) 
-  
+  // en Visningsboks til krypteret gåde
     riddleDiv = createDiv('Hit the button to fetch a new riddle')
   riddleDiv.addClass('riddleDiv')
   riddleDiv.position(width/3,height/4)
@@ -69,15 +70,18 @@ function setup() {
   
   
   
-   // Svar input
+   // Inputfelt til svar
   answerInput = createInput('');
   answerInput.position(width/3, height/2+80);
   answerInput.size(300);
   
+  // Knap til at tjekke om svaret er korrekt
   let checkButton = createButton('Tjek svar');
   checkButton.position(width/3, height/2+130 );
   checkButton.mousePressed(checkAnswer);
   
+
+  // Div til visning af resultatet (korrekt/forkert svar)
   resultDiv = createDiv('');
   resultDiv.position(width/3, height/2+180);
   resultDiv.style('color', 'black');
@@ -89,20 +93,23 @@ function setup() {
   
   
 // Opret MQTT-forbindelse (WebSocket-protokol)
+// MQTT – Opret forbindelse til broker (gratis test-server)
   mqttClient = mqtt.connect("wss://test.mosquitto.org:8081"); // Gratis testbroker
 
   
-  
+  // // Når klienten er forbundet
   mqttClient.on("connect", () => {
   console.log("Spiller 1 forbundet!");
   mqttClient.subscribe("morse/svar");
 });
   
-
+// Når der modtages en besked
   mqttClient.on("message", (topic, message) => {
   const received = message.toString(); // f.eks. "·−·−"
   console.log("Modtaget:", received);
     
+
+  // Tilføj hver morse-tegn til morseCode-strengen
   for (let char of received) {
     if (char === '·') morseCode += '·';
     else if (char === '−') morseCode += '−';
@@ -117,29 +124,34 @@ function setup() {
 }
   
   
-  
+  //Funktion til at hente en tilfældig gåde fra Firebase
  async function getRiddle() {
+  // Vis loadingtekst
   riddleDiv.html('Henter gåde...');
   try {
     // Hent dokumentet fra Firebase
     const doc = await database.collection('gaade').doc('gaader').get();
     
+    // Tjek om dokumentet eksisterer
     if (doc.exists) {
       const data = doc.data();
       
-      // Tjek om der er gåder i dokumentet
+      // Tjek om der er nogle gåder i dokumentet
       if (data.riddles && data.riddles.length > 0) {
         // Vælg en tilfældig gåde fra arrayet
         const randomIndex = Math.floor(Math.random() * data.riddles.length);
+        // Gåden man har valgt
         const selectedRiddle = data.riddles[randomIndex];
         
         riddle = selectedRiddle.riddle;
         //riddle = selectedRiddle.riddle;
         
+        // svar bliver tekst i små bogstaver, Det bruges til at sikre at sammenligning af svar er uafhængig af store/små bogstaver
         correctAnswer = selectedRiddle.answer.toLowerCase();
-        correctRiddle = selectedRiddle.answer.toLowerCase()
+       // correctRiddle = selectedRiddle.answer.toLowerCase()
         
         // Krypter gåden med ROT13
+        // og ROT13 kun virker på store bogstaver, funktion bliver skrevet på (A-Z = ASCII 65-90)
        encryptedRiddle = caesarEncrypt(riddle.toUpperCase(),13);
       console.log(selectedRiddle.riddle.toUpperCase())
        
