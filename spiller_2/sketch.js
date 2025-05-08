@@ -114,7 +114,7 @@ function draw() {
    stroke('goldenrod');
    strokeWeight(2)
   // viser titel
-  text("SPILLER 2: Morse-modtager", 20, 30);
+  text("SPILLER 2: tænker", 20, 30);
   // viser den aktuelle morseCode på skærmen
   text("morse kode: " + morseCode, 80, 320); 
 }
