@@ -16,8 +16,6 @@ let answerInput;
 // en tekstboks hvor viser svar er rigtigt eller forkert
 let resultDiv;
 
-
-
 // Indlæser et baggrundsbillede før setup() starter
 function preload() {  
   img = loadImage('./assets/background.jpeg')
@@ -27,10 +25,7 @@ function setup() {
   // tegner et canvas i hele vinduets størrelse
   createCanvas(windowWidth, windowHeight);
   // tekststørrelse
-  textSize(16);
-
-  
-  
+  textSize(16);  
   
    // gå ind i datebasen og kig samlingen gaade, finde dokumentet med navnet gaader
   database.collection('gaade').doc('gaader')
@@ -41,13 +36,7 @@ function setup() {
       // så man kan se hvad der er blevet hentet
       console.log('Fik dette fra databasen: ', doc.data() )
     console.log(doc.data())
-    
-    
   } )
-  
-   
-  
-  
   
  // Knap til at hente en ny gåde
   let riddleButton = createButton('Hent gåde')
@@ -61,7 +50,6 @@ function setup() {
   // her som callback når knappen bliver trykket
   riddleButton.mousePressed( () => getRiddle() ) 
 
-  
   // skaber en ny boks på skærmen, hvor teksten står som standard :" hit the button..."
   //boksen bruges til at vise den krtyperede gåde senere
     riddleDiv = createDiv('Hit the button to fetch a new riddle')
@@ -72,8 +60,6 @@ function setup() {
   // 1/3 fra venstre kant af skærmen
   // 1/4 nede fra toppen af skærmen
   riddleDiv.position(width/3,height/4)
-  
-  
   
    // Inputfelt til svar
    // laver et tomt inputfelt, hvor brugeren kan skrive sit svat til gåden
@@ -91,7 +77,6 @@ function setup() {
   // som tjekker om svaret er korrekt
   checkButton.mousePressed(checkAnswer);
   
-
   
   // visning af resultatet (rigtigt/forkert)
   // opretter en ny tom boks/div, hvor man snerer vil se om svaret er korrekt eller forkert
@@ -101,10 +86,6 @@ function setup() {
   //tekst i boksen bliver sort og fed skrift
   resultDiv.style('color', 'black');
   resultDiv.style('font-weight', 'bold');
-
-  
-  
-  
   
   
 
@@ -134,14 +115,8 @@ function setup() {
     else if (char === '−') morseCode += '−';
     else if (char === ' ') morseCode += ' ';
   }
-
 });
-  
-
-  
-  
 }
-  
   
   //Funktion til at hente en tilfældig gåde fra Firebase
   // starter en asynkron funktion, så den kan vente på svar fra databasen(Firebase)
@@ -241,15 +216,10 @@ function draw() {
   //kanten på teksten bliver guld
   stroke('goldenrod');
   strokeWeight(2)
-
-
   // viser en overskrift med windowWidth/7 x-position og 60 pixels y-position
 text("Spiller 1: eventyr", windowWidth/7,60); 
 //viser tekst "svar fra Spiller 2" efterfulgt af det der er modtaget i morseCode
   text("Svar fra Spiller 2: " +  morseCode, windowWidth/7, windowHeight/2);
-
-  
-
 }
 
 // Dette definerer en tekstfunktion til at kryptere teksten ved hjælp af Caesar-kryptering

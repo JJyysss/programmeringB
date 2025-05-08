@@ -13,7 +13,6 @@ function preload() {
   img = loadImage('./assets/backgr.jpeg')
 }
 
-
 // setup() kører én gang, når programmet starter
 // det er startfunktoin i p5.js
 function setup() {
@@ -21,10 +20,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // sætter tekststørrelse til 16 pixler
   textSize(16);
-  
-  
-  
-  
+
   //opret forbindelse til en gratis MQTT-testserver via Websocket-protokol
   mqttClient = mqtt.connect("wss://test.mosquitto.org:8081");
   // når det er forbundet, vise tekst i konsole
@@ -67,8 +63,6 @@ function setup() {
 // lave en boksen i HTML-elementet med id "morseDisplay"til at vise morseCode 
   createDiv('Din Morse-kode:').position(20, 550).id('morseDisplay');
   
-  
-  
     // lave en inputfelt og en knap til at skrive dekrypteret tekst med casecar-13
   decryptInput = createInput('');
   decryptInput.position(width/4, 150);
@@ -85,9 +79,6 @@ function setup() {
   // flytter det tesktfelt hen til x=20, y=200 på skærmen
   decryptedP.position(20, 200);
   // dette felt viser den dekrypterede tekst, når brugeren trykker på knappen
-  
-  
-  
 }
 
 // lave en funktion som bruges til at slette den sidste karakter
@@ -112,10 +103,6 @@ function sendMorse() {
   }
 }
 
-
-
-
-
 function draw() {
   // tegner baggrunden med billedet img og sætter det til at fylde hele vinduet
   background(img,windowWidth,windowHeight);
@@ -129,8 +116,7 @@ function draw() {
   // viser titel
   text("SPILLER 2: Morse-modtager", 20, 30);
   // viser den aktuelle morseCode på skærmen
-  text("morse kode: " + morseCode, 80, 320);
-  
+  text("morse kode: " + morseCode, 80, 320); 
 }
 
 // funktion til når brugeren trykker på knappen "Dekryptér"
