@@ -236,6 +236,13 @@ function draw() {
   background(img,windowWidth,windowHeight);
   // tekststørrelse til 30 pixels
   textSize(30);
+  // giv tekst farve sort
+  fill('black');
+  //kanten på teksten bliver guld
+  stroke('goldenrod');
+  strokeWeight(2)
+
+
   // viser en overskrift med windowWidth/7 x-position og 60 pixels y-position
 text("Spiller 1: eventyr", windowWidth/7,60); 
 //viser tekst "svar fra Spiller 2" efterfulgt af det der er modtaget i morseCode

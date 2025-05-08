@@ -1,5 +1,5 @@
+/* indholdet starter helt i kanen i bronseren */
 html, body {
-  
     margin: 0;
     padding: 0;
     
@@ -7,20 +7,38 @@ html, body {
 
   body
   {
+    
     font-family: Arial;
  
     font-size: 30px;
   } 
   canvas {
+    /* simpel layout, standard for elementer som <div>, <p>, <h1> osv */
     display: block;
     
   }
- 
   
-      #decryptInput { padding: 8px; margin: 10px; }
+      Input { 
+        font-weight: bold;
+         }
+        
 
       button { 
-        place-items:center;
-        border:3px, solid ,goldenrod;
-        padding: 0px 0px;  font-size: 30px;}
+        border:3px solid goldenrod;
+       
+        text-align: center;
+        color: #461919;
+        text-shadow: 2px 2px 4px #000000;
+         font-size: 20px;
+        }
+
+        #morseDisplay{
+          font-weight: bold;
+        }
+
+       p{
+          font-weight: bold;
+        }
+         
+        
       

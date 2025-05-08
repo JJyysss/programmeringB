@@ -36,26 +36,26 @@ function setup() {
   // laver en knap for prik . 
   // der tilføjer . til morseCode når brugeren trykker på knappen
   dotButton = createButton('· (Prik)');
-  dotButton.position(20, 350);
+  dotButton.position(150, 350);
   dotButton.mousePressed(() => morseCode += '·');
   
   // laver en knap for mellemrum 
   // der tilføjer mellemrum til morseCode når brugeren trykker på knappen
    rumButton = createButton('  (mellemrum)');
-  rumButton.position(520, 350);
+  rumButton.position(650, 350);
  rumButton.mousePressed(() => morseCode += ' ');
 
  // laver en knap for bindesteg - 
   // der tilføjer - til morseCode når brugeren trykker på knappen 
   dashButton = createButton('− (Bindestreg)');
-  dashButton.position(200, 350);
+  dashButton.position(350, 350);
   dashButton.mousePressed(() => morseCode += '−');
 
 
   
   // en knap til at slette den sidste karakter i morseCode
   deleteButton = createButton('Slet sidste');
-  deleteButton.position(200, 450);
+  deleteButton.position(250, 450);
   // når knappen trykkes, kaldes deleteLastCharacter-funktionen
   deleteButton.mousePressed(deleteLastCharacter);
   
@@ -121,6 +121,11 @@ function draw() {
   background(img,windowWidth,windowHeight);
   // sætter tekststørrelse til 30 pixler
   textSize(30);
+   // giv tekst farve hvid
+   fill('white');
+   //kanten på teksten bliver guld
+   stroke('goldenrod');
+   strokeWeight(2)
   // viser titel
   text("SPILLER 2: Morse-modtager", 20, 30);
   // viser den aktuelle morseCode på skærmen

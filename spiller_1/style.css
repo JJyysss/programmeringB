@@ -4,18 +4,19 @@ html, body {
     
   }
   canvas {
+
     display: block;
     
   }
   
    body { 
     font-family: Arial; 
- 
+    text-shadow: 2px 2px 2px #676262;
     font-size: 30px;
    }
-      #p5Canvas { 
-        
-        margin: 20px 0; 
-        font-size: 30px;
-       }
-      button { padding: 4px 20px; margin: 5px; font-size: 30px;}
+      button { 
+        border:3px solid goldenrod; 
+        text-align: center;
+        color: #46191994;
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 30px;}

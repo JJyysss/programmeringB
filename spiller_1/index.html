@@ -1,32 +1,37 @@
+  <!-- fortæller browseren, at det her er et HTML5-dokument -->
 <!DOCTYPE html>
+ <!-- starter HTMl-dokument på engelsk -->
 <html lang="en">
+   <!-- alt herinde i head der handler om opsætning, styles, og scriptes, vises ikke på side -->
   <head>
-    
-    
-    
-    
+     <!-- skeleton CSS, enkel standard styles -->
+       <!-- tilføj et simpel deisgn til knapper, tekstfelt, layout -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    
+     <!-- MQTT JavaScript - bibliotek, gør det muligt at bruge MQTT i kode, sende beskeder trådløst via netværk -->
  <script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+      <!-- p5.js - JavaScript bibliotek til at lave grafik og interaktive elementer -->
+      <!-- p5.sound - tilføjer lydfunktioner til p5.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
-    
+     <!-- Firebasse, forbinde til database -->
      <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+      <!-- gør det muligt til at læse/ skrive i databasen -->
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-firestore.js"></script> 
+     <!-- min egen fil, skriver konfiguraton og adgang til Firebase-projekt-->
         <script src="./firebase.js"></script>
-    
+      <!-- egen css-style sheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
+     <!-- sørger for at specialtegn som æ, ø, å vises korrekt -->
     <meta charset="utf-8" />
 
   </head>
+  <!-- alt herinde i body vises på siden -->
   <body>
+     <!-- et HTML-elemnt, der bruges til at holde hovedindholdet -->
     <main>
-       <!-- <h1>Spiller 1: Gådeafsender</h1> -->
-  <!-- <div id="p5Canvas"></div> -->
- 
     </main>
-     
+      <!-- min egen js-fil -->
     <script src="sketch.js"></script>
+     <!-- slutter dokumentet -->
   </body>
 </html>
