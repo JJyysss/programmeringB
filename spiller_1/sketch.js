@@ -184,7 +184,7 @@ function checkAnswer() {
   // Hvis brugerens svar er korrekt (matcher rigtige svar som begge i små bogstaver)
   if (userAnswer === correctAnswer) {
     //vises denne succes-besked
-    resultDiv.html('Korrekt! Godt gået! 🎉');
+    resultDiv.html('Korrekt! Godt gået! ');
     // og teksten bliver grøn
     resultDiv.style('color', 'green');
   } else {
