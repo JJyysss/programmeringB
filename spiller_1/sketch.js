@@ -26,17 +26,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // tekststørrelse
   textSize(16);  
+
   
-   // gå ind i datebasen og kig samlingen gaade, finde dokumentet med navnet gaader
-  database.collection('gaade').doc('gaader')
-  // hold øje med ændringer i dokumentet
-  // hvis der sker noget i dokumentet, så kør funktionen herunder:
-    .onSnapshot( (doc) => {
-      // vis indholdet fra databasen i konsollen
-      // så man kan se hvad der er blevet hentet
-      console.log('Fik dette fra databasen: ', doc.data() )
-    console.log(doc.data())
-  } )
   
  // Knap til at hente en ny gåde
   let riddleButton = createButton('Hent gåde')
